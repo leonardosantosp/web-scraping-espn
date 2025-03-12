@@ -1,4 +1,3 @@
-/* Remove margem padrão e define centralização */
 body {
   margin: 0;
   padding: 0;
@@ -7,7 +6,6 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  /* background-color: rgba(97, 205, 241, 0.5); */
   background-image: url('/frontend/assets/back.svg');
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -20,17 +18,16 @@ nav {
   position: fixed;
   top: 0;
   z-index: 1000;
-  transition: transform 0.3s ease-in-out; /* Adiciona uma transição suave */
+  transition: transform 0.3s ease-in-out;
 }
 
 nav a img {
-  height: 60px; /* Ajuste do tamanho da logo */
+  height: 60px;
 }
 
-/* Estilização do título */
 nav h1 {
   margin: 0 -20px;
-  font-size: 22px; /* Fonte mais moderna */
+  font-size: 22px;
   font-weight: 700;
   font-family: 'Roboto', Arial, sans-serif;
   letter-spacing: 1.5px;
@@ -39,26 +36,25 @@ nav h1 {
 }
 
 nav h1 .first {
-  color: #ff4b5c; /* Um vermelho mais vibrante */
+  color: #ff4b5c;
 }
 
 nav h1 .second {
-  color: #0066cc; /* Azul mais moderno */
+  color: #0066cc;
 }
 
-/* Container para centralizar o SVG */
 .svg-container {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-grow: 1;
   width: 100%;
-  margin-top: 70px; /* Ajuste para não sobrepor o menu */
+  margin-top: 70px;
 }
 
 #mapa {
   margin-left: 90px;
   width: 94%;
-  max-width: 1000px; /* Limite para não expandir demais */
+  max-width: 1000px;
   height: 100%;
 }
