@@ -5,6 +5,7 @@ import { fastifySwaggerUi } from '@fastify/swagger-ui'
 import { jsonSchemaTransform } from 'fastify-type-provider-zod'
 import { connectDb } from './db/connect.js'
 import { getAllTeamsRoute } from './routes/get_all_teams_route.js' // Importe a função de rota
+import { getAllPlayersRoute } from './routes/get_all_players_route.js'
 
 connectDb()
 
@@ -34,6 +35,7 @@ app.register(fastifySwaggerUi, {
 
 // Registrando a rota de times
 app.register(getAllTeamsRoute) // Registra a rota de obter todos os times
+app.register(getAllPlayersRoute)
 
 // Roteamento para servir uma página em branco
 app.get('/', async (request, reply) => {
