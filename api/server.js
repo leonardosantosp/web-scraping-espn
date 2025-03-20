@@ -2,15 +2,22 @@ import { fastify } from 'fastify'
 import { fastifyCors } from '@fastify/cors'
 import { fastifySwagger } from '@fastify/swagger'
 import { fastifySwaggerUi } from '@fastify/swagger-ui'
-import { jsonSchemaTransform } from 'fastify-type-provider-zod'
-import { connectDb } from './db/connect.js'
-import { getAllTeamsRoute } from './routes/get_all_teams_route.js' // Importe a função de rota
+import {
+  jsonSchemaTransform,
+  serializerCompiler,
+  validatorCompiler
+} from 'fastify-type-provider-zod'
+import { connectDb } from './database/connect.js'
+import { getAllTeamsRoute } from './routes/get_all_teams_route.js'
 import { getAllPlayersRoute } from './routes/get_all_players_route.js'
-
+import { getTeamByIdRoute } from './routes/get_team_by_id_route.js'
 connectDb()
 
 //instanciando o servidor
 const app = fastify()
+
+app.setValidatorCompiler(validatorCompiler)
+app.setSerializerCompiler(serializerCompiler)
 
 // Registrando o CORS (Cross-Origin Resource Sharing)
 // Isso permite configurar quais origens podem acessar a API.
@@ -36,6 +43,7 @@ app.register(fastifySwaggerUi, {
 // Registrando a rota de times
 app.register(getAllTeamsRoute) // Registra a rota de obter todos os times
 app.register(getAllPlayersRoute)
+app.register(getTeamByIdRoute)
 
 // Roteamento para servir uma página em branco
 app.get('/', async (request, reply) => {

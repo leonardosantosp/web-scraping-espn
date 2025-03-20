@@ -1,0 +1,8 @@
+###
+GET http://localhost:3333/teams
+
+###
+GET http://localhost:3333/players
+
+###
+GET http://localhost:3333/teams/67d5ef31e936e1912e2b2dd5
