@@ -9,3 +9,6 @@ GET http://localhost:3333/teams/67d5ef31e936e1912e2b2dd5
 
 ###
 GET http://localhost:3333/players/67d5f772e936e1912e2b2e78
+
+###
+GET http://localhost:3333/teams/67d5f284e936e1912e2b2def/players

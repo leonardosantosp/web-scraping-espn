@@ -12,6 +12,8 @@ import { getAllTeamsRoute } from './routes/get_all_teams_route.js'
 import { getAllPlayersRoute } from './routes/get_all_players_route.js'
 import { getTeamByIdRoute } from './routes/get_team_by_id_route.js'
 import { getPlayerByIdRoute } from './routes/get_player_by_id_route.js'
+import { getPlayersByTeamRoute } from './routes/get_players_by_team_route.js'
+
 connectDb()
 
 //instanciando o servidor
@@ -46,6 +48,7 @@ app.register(getAllTeamsRoute) // Registra a rota de obter todos os times
 app.register(getAllPlayersRoute)
 app.register(getTeamByIdRoute)
 app.register(getPlayerByIdRoute)
+app.register(getPlayersByTeamRoute)
 // Roteamento para servir uma página em branco
 app.get('/', async (request, reply) => {
   return reply.type('text/html').send()

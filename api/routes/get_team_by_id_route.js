@@ -1,16 +1,7 @@
 import { getTeamById } from '../repository/get_team_by_id.js'
 import { z } from 'zod'
-import mongoose from 'mongoose'
 import { teamSchema } from './schemas.js'
-
-function formatTeamData(team) {
-  return {
-    _id: mongoose.Types.ObjectId.isValid(team._id) ? team._id.toString() : null,
-    time: team.time,
-    technical: team.technical,
-    image_link: team.image_link
-  }
-}
+import { formatTeamData } from '../utils/formatters.js'
 
 export const getTeamByIdRoute = async app => {
   app.get(
