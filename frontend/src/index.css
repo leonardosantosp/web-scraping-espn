@@ -34,11 +34,22 @@ body {
 }
 
 .header__logo-name {
+  position: relative;
   color: #17408b;
   font-family: 'Montserrat', sans-serif;
-  font-size: 32px;
+  font-size: 3rem;
   font-weight: 700;
   letter-spacing: 1px;
+}
+
+.header__logo-name::before {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  color: white;
+  -webkit-text-stroke: 3px white;
 }
 
 .header__logo-name span {
@@ -103,6 +114,88 @@ body {
   height: 100%;
 }
 
+.list-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+  padding: 20px;
+}
+
+.list-teams {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.list-teams:hover {
+  box-shadow: 0px 15px 45px rgba(0, 0, 0, 0.15);
+}
+
+.list-teams h2 {
+  text-align: center;
+}
+
+.list-teams a {
+  text-decoration: none;
+  color: #0066cc;
+}
+
+.list-teams a:hover {
+  color: #043261;
+}
+
+.list-teams__title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+  margin: 20px 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.list-teams__team {
+  display: flex;
+  align-items: center;
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 12px;
+  margin: 10px 0;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.list-teams__team:hover {
+  background: #e6f0ff;
+  transform: scale(1.02);
+}
+
+.list-teams__team-image {
+  width: 70px;
+  height: 70px;
+  border-radius: 20%;
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out;
+}
+
+.list-teams__team-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-left: 15px;
+  font-family: 'Poppins', sans-serif;
+  transition: color 0.5s ease;
+}
+
+.list-teams__team:hover .list-teams__team-image {
+  transform: scale(1.2);
+}
 /* Responsivos */
 
 @media (max-width: 768px) {
@@ -125,5 +218,20 @@ body {
 
   .header__routes li {
     margin-bottom: 15px;
+  }
+
+  .list-teams {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .list-teams__team {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .list-teams__team-image {
+    margin-bottom: 10px;
   }
 }

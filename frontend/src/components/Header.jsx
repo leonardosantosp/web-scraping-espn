@@ -12,7 +12,7 @@ export const Header = () => {
             loading="lazy"
           />
         </Link>
-        <h2 className="header__logo-name">
+        <h2 className="header__logo-name" data-text="NBA API">
           NBA <span>API</span>
         </h2>
       </div>
