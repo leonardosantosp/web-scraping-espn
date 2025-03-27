@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { getTeams } from '../../api/teamsApi.js'
-import { Link } from 'react-router-dom'
+import { TeamItem } from './TeamItem.jsx'
 
 export const ListTeams = () => {
   const [teams, setTeams] = useState([])
@@ -10,7 +10,6 @@ export const ListTeams = () => {
     const fetchTeams = async () => {
       try {
         const data = await getTeams()
-        console.log(data)
         setTeams(data)
       } catch (error) {
         console.error('Erro ao buscar times:', error)
@@ -30,16 +29,7 @@ export const ListTeams = () => {
       <div className="list-teams">
         <h2 className="list-teams__title">Times</h2>
         {teams.map(team => (
-          <Link to={`/teams/${team._id}`} key={team._id}>
-            <div className="list-teams__team" key={team._id}>
-              <img
-                className="list-teams__team-image"
-                src={team.image_link}
-                alt={`Logo do ${team.time}`}
-              />
-              <h3 className="list-teams__team-name">{team.time}</h3>
-            </div>
-          </Link>
+          <TeamItem team={team} key={team._id} />
         ))}
       </div>
     </div>

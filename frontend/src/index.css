@@ -137,10 +137,6 @@ body {
   box-shadow: 0px 15px 45px rgba(0, 0, 0, 0.15);
 }
 
-.list-teams h2 {
-  text-align: center;
-}
-
 .list-teams a {
   text-decoration: none;
   color: #0066cc;
@@ -196,6 +192,87 @@ body {
 .list-teams__team:hover .list-teams__team-image {
   transform: scale(1.2);
 }
+
+.list-players {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.list-players:hover {
+  box-shadow: 0px 15px 45px rgba(0, 0, 0, 0.15);
+}
+
+.list-players a {
+  text-decoration: none;
+  color: #0066cc;
+}
+
+.list-players a:hover {
+  color: #043261;
+}
+
+.list-players__title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+  margin: 20px 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.list-players__player {
+  display: flex;
+  align-items: center;
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 12px;
+  margin: 10px 0;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.list-players__player:hover {
+  background: #e6f0ff;
+  transform: scale(1.02);
+}
+
+.list-players__team-image img {
+  width: 100px;
+  height: 100px;
+  border-radius: 20%;
+  object-fit: cover;
+  transition: transform 0.5s ease-in-out;
+}
+
+.list-players__team-image img:hover {
+  transform: translateY(-10px);
+}
+
+.list-players__player-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-left: 15px;
+  font-family: 'Poppins', sans-serif;
+  transition: color 0.5s ease;
+}
+
+.list-players__player:hover .list-players__team-image {
+  transform: scale(1.2);
+}
+
+.list-players__player-image {
+  width: 200px;
+  height: 150px;
+}
+
 /* Responsivos */
 
 @media (max-width: 768px) {
