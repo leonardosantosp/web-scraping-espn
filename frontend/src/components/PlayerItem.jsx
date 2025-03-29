@@ -28,12 +28,17 @@ export const PlayerItem = ({ player }) => {
       <Link className="" to={`/players/${player._id}`} key={player._id}>
         <div className="list-players__player">
           <div className="list-players__team-image">
-            <img src={team.image_link} alt={`Logo do time ${team.time}`} />
+            <img
+              src={team.image_link}
+              alt={`Logo do time ${team.time}`}
+              loading="lazy"
+            />
           </div>
           <img
             className="list-players__player-image"
             src={player.image}
             alt={`Foto do ${player.name}`}
+            loading="lazy"
           />
           <h3 className="list-players__player-name">{player.name}</h3>
         </div>

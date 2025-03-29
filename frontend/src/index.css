@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap');
+
 * {
   padding: 0;
   margin: 0;
@@ -370,6 +372,152 @@ body {
 
 .clipboard {
   width: 1300px;
+}
+
+.team__player-image {
+  height: 50px;
+  width: 70px;
+}
+
+.table-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Para ocupar a altura total da tela */
+}
+
+.table-card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.15);
+  transition: box-shadow 0.3s ease-in-out, transform 0.2s ease-in-out;
+  max-width: 80%;
+  min-height: 400px;
+  overflow-x: auto;
+  margin: auto;
+  border: 2px solid #ddd;
+}
+
+.table-card:hover {
+  box-shadow: 0px 15px 45px rgba(0, 0, 0, 0.15);
+}
+
+/* Estilo geral da tabela */
+table {
+  width: 100%;
+  border-collapse: collapse; /* Remove espaços entre as bordas */
+}
+
+/* Bordas nas linhas */
+tr {
+  border-bottom: 1px solid #ccc; /* Linha entre cada linha da tabela */
+}
+
+/* Intercalar cores das linhas (branca e cinza) */
+tbody tr:nth-child(odd) {
+  background-color: #f9f9f9; /* Branco */
+}
+
+tbody tr:nth-child(even) {
+  background-color: #eaeaea; /* Cinza */
+}
+
+/* Espaçamento entre as colunas */
+th,
+td {
+  padding: 12px; /* Adiciona espaçamento dentro das células */
+  text-align: left; /* Alinhamento do texto */
+}
+
+/* Borda superior e inferior do cabeçalho */
+thead tr {
+  border-top: 2px solid #d5d0d0;
+  border-bottom: 2px solid #d5d0d0;
+}
+
+/* Fonte profissional para o cabeçalho */
+thead th {
+  font-family: 'Merriweather', serif;
+  font-size: 12px;
+  font-weight: bold;
+  color: #333;
+  text-transform: uppercase;
+  padding: 15px;
+}
+
+/* Fonte profissional para os dados da tabela */
+tbody td {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  color: #444;
+}
+
+/* Ajuste para imagens dentro da tabela */
+.team__player-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+/* Rodapé da tabela */
+tfoot tr {
+  font-weight: bold;
+  background-color: #ddd;
+  border-top: 2px solid #918f8f;
+}
+
+tfoot td {
+  padding: 10px;
+  text-align: center;
+}
+
+.table-logo {
+  max-width: 300px;
+  max-height: 100px;
+  margin-left: 20px;
+}
+
+.header-table {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-table h1 {
+  margin-left: 30px;
+}
+
+.team__header {
+  width: 100%;
+  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.5);
+  margin: 80px 0 30px 0;
+  display: flex;
+  align-items: center;
+}
+
+.team__player-name span {
+  font-size: 10px;
+  color: #838181;
+}
+
+.team__player-name a {
+  text-decoration: none;
+  color: #1e5ccf;
+}
+
+.team__player-name a:hover {
+  color: #113d8e;
+}
+
+.team__player-name a:hover img {
+  transform: translateY(-10px);
+}
+
+.team__header img {
+  max-width: 100px;
+  margin-right: 30px;
 }
 
 /* Responsivos */

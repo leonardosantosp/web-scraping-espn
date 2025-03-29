@@ -4,6 +4,7 @@ import { Home } from './pages/Home.jsx'
 import { Teams } from './pages/Teams.jsx'
 import { Players } from './pages/Players.jsx'
 import { Player } from './pages/Player.jsx'
+import { Team } from './pages/Team.jsx'
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/teams" element={<Teams />} />
           <Route path="/players" element={<Players />} />
           <Route path="/players/:id" element={<Player />} />
+          <Route path="/teams/:id" element={<Team />} />
         </Routes>
       </BrowserRouter>
     </>
