@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Home } from './pages/Home.jsx'
 import { Teams } from './pages/Teams.jsx'
 import { Players } from './pages/Players.jsx'
+import { Player } from './pages/Player.jsx'
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/teams" element={<Teams />} />
           <Route path="/players" element={<Players />} />
+          <Route path="/players/:id" element={<Player />} />
         </Routes>
       </BrowserRouter>
     </>

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap');
+
 * {
   padding: 0;
   margin: 0;
@@ -7,6 +9,7 @@
 html,
 body {
   height: 100%;
+  width: 100%;
 }
 
 .header {
@@ -273,6 +276,102 @@ body {
   height: 150px;
 }
 
+/* Container principal do jogador */
+.player-container {
+  background-image: url('./assets/backgroundPlayer.png');
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 1400px;
+}
+
+.player {
+  position: relative;
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+  background: url('./assets/prancheta.png') no-repeat center center;
+  background-size: contain;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.player__content {
+  position: absolute;
+  top: 20%;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Cabeçalho do jogador */
+.player__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.player__header-background-image img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.player__header-team-image img {
+  width: 170px;
+  height: 170px;
+  object-fit: contain;
+}
+
+/* Dados do jogador */
+.player__data {
+  font-family: 'Dancing Script', cursive;
+  margin-top: 30px;
+  left: 10%;
+  text-align: left;
+  font-size: 1rem;
+  color: #000;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #000;
+  text-align: left;
+}
+
+.player__data p {
+  margin-bottom: 5px;
+  font-weight: 500;
+  border-bottom: 3px solid #000; /* Borda preta */
+  padding-bottom: 5px; /* Espaçamento para melhor visualização */
+  font-weight: bold;
+}
+
+.signature-container {
+  display: flex;
+  width: 100%;
+  height: 450px !important;
+  justify-content: flex-end;
+  align-content: flex-end;
+  flex-wrap: wrap;
+}
+
+.player__signature {
+  bottom: 30px;
+  right: 30px;
+  width: 200px;
+  height: 200px;
+}
+
+.clipboard {
+  width: 1300px;
+}
+
 /* Responsivos */
 
 @media (max-width: 768px) {
@@ -310,5 +409,133 @@ body {
 
   .list-teams__team-image {
     margin-bottom: 10px;
+  }
+
+  .list-players {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .list-players__player {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .clipboard {
+    height: 600px;
+    width: 600px;
+  }
+
+  .player__header-background-image img {
+    margin: 50px 0 0 30px;
+    height: 80px !important;
+    width: 80px !important;
+  }
+
+  .player__header-team-image img {
+    margin: 50px 30px 0 0;
+    height: 80px !important;
+    width: 80px !important;
+  }
+
+  .player__data {
+    height: 200px;
+    width: 200px;
+    margin-left: 40px;
+  }
+
+  .player__header {
+    height: 110px;
+  }
+
+  .signature-container {
+    position: absolute;
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .player-container {
+    height: auto;
+    padding: 50px 20px;
+  }
+
+  .player {
+    max-width: 90%;
+    height: auto;
+    background-size: contain;
+  }
+
+  .player__content {
+    width: 90%;
+    top: 10%;
+  }
+
+  .player__header-background-image img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .player__header-team-image img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .player__data {
+    font-size: 0.9rem;
+  }
+
+  .player__data p {
+    font-size: 1rem;
+    padding-bottom: 3px;
+    border-bottom: 2px solid #000;
+  }
+
+  .signature-container {
+    justify-content: center;
+  }
+
+  .player__signature {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+/* Responsivos para mobile */
+@media (max-width: 480px) {
+  .player {
+    background-size: 70% auto; /* Diminuir o tamanho da prancheta para telas menores */
+    background-position: top center; /* Ajustar a posição da prancheta */
+  }
+
+  .player__content {
+    top: 10%;
+    width: 100%;
+  }
+
+  .player__header-background-image img,
+  .player__header-team-image img {
+    width: 60px; /* Ajustar o tamanho das imagens do cabeçalho para telas pequenas */
+    height: 60px;
+  }
+
+  .player__data {
+    font-size: 0.8rem;
+  }
+
+  .player__data p {
+    font-size: 0.9rem;
+    padding-bottom: 3px;
+    border-bottom: 1.5px solid #000; /* Reduzir a espessura da borda */
+  }
+
+  .signature-container {
+    justify-content: center;
+  }
+
+  .player__signature {
+    width: 120px;
+    height: 120px;
   }
 }
