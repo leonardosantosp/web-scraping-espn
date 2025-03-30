@@ -1,29 +1,6 @@
-import { useState, useEffect } from 'react'
-import { getPlayers } from '../../api/playersApi.js'
 import { PlayerItem } from '../components/PlayerItem.jsx'
 
-export const ListPlayers = () => {
-  const [players, setPlayers] = useState([])
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    const fetchPlayers = async () => {
-      try {
-        const data = await getPlayers()
-        setPlayers(data)
-      } catch (error) {
-        console.error('Erro ao buscar players:', error)
-      } finally {
-        setLoading(false)
-      }
-    }
-    fetchPlayers()
-  }, [])
-
-  if (loading) {
-    return <div>loading...</div>
-  }
-
+export const ListPlayers = ({ players }) => {
   return (
     <div className="list-container">
       <div className="list-players">

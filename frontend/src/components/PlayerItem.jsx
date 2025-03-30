@@ -18,9 +18,8 @@ export const PlayerItem = ({ player }) => {
     fetchTeam()
   }, [player])
 
-  // Verifica se o time ainda não foi carregado, retorna uma mensagem de loading
   if (!team) {
-    return <div>Loading team...</div>
+    return <div>Loading Player...</div>
   }
 
   return (

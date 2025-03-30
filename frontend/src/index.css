@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 
 * {
   padding: 0;
@@ -124,7 +124,7 @@ body {
   justify-content: center;
   align-items: center;
   margin-top: 100px;
-  padding: 20px;
+  padding: 5px;
 }
 
 .list-teams {
@@ -278,7 +278,6 @@ body {
   height: 150px;
 }
 
-/* Container principal do jogador */
 .player-container {
   background-image: url('./assets/backgroundPlayer.png');
   display: flex;
@@ -311,7 +310,6 @@ body {
   justify-content: space-between;
 }
 
-/* Cabeçalho do jogador */
 .player__header {
   display: flex;
   justify-content: space-between;
@@ -332,7 +330,6 @@ body {
   object-fit: contain;
 }
 
-/* Dados do jogador */
 .player__data {
   font-family: 'Dancing Script', cursive;
   margin-top: 30px;
@@ -349,8 +346,8 @@ body {
 .player__data p {
   margin-bottom: 5px;
   font-weight: 500;
-  border-bottom: 3px solid #000; /* Borda preta */
-  padding-bottom: 5px; /* Espaçamento para melhor visualização */
+  border-bottom: 3px solid #000;
+  padding-bottom: 5px;
   font-weight: bold;
 }
 
@@ -383,7 +380,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Para ocupar a altura total da tela */
+  height: 100vh;
 }
 
 .table-card {
@@ -403,42 +400,36 @@ body {
   box-shadow: 0px 15px 45px rgba(0, 0, 0, 0.15);
 }
 
-/* Estilo geral da tabela */
 table {
   width: 100%;
-  border-collapse: collapse; /* Remove espaços entre as bordas */
+  border-collapse: collapse;
 }
 
-/* Bordas nas linhas */
 tr {
-  border-bottom: 1px solid #ccc; /* Linha entre cada linha da tabela */
+  border-bottom: 1px solid #ccc;
 }
 
-/* Intercalar cores das linhas (branca e cinza) */
 tbody tr:nth-child(odd) {
-  background-color: #f9f9f9; /* Branco */
+  background-color: #f9f9f9;
 }
 
 tbody tr:nth-child(even) {
-  background-color: #eaeaea; /* Cinza */
+  background-color: #eaeaea;
 }
 
-/* Espaçamento entre as colunas */
 th,
 td {
-  padding: 12px; /* Adiciona espaçamento dentro das células */
-  text-align: left; /* Alinhamento do texto */
+  padding: 12px;
+  text-align: left;
 }
 
-/* Borda superior e inferior do cabeçalho */
 thead tr {
   border-top: 2px solid #d5d0d0;
   border-bottom: 2px solid #d5d0d0;
 }
 
-/* Fonte profissional para o cabeçalho */
 thead th {
-  font-family: 'Merriweather', serif;
+  font-family: 'Raleway', serif;
   font-size: 12px;
   font-weight: bold;
   color: #333;
@@ -446,22 +437,19 @@ thead th {
   padding: 15px;
 }
 
-/* Fonte profissional para os dados da tabela */
 tbody td {
   font-family: 'Roboto', sans-serif;
   font-size: 14px;
   color: #444;
 }
 
-/* Ajuste para imagens dentro da tabela */
 .team__player-image {
-  width: 50px;
-  height: 50px;
-  border-radius: 10px;
+  width: 60px;
+  height: 60px;
+  border-radius: 5px;
   object-fit: cover;
 }
 
-/* Rodapé da tabela */
 tfoot tr {
   font-weight: bold;
   background-color: #ddd;
@@ -483,6 +471,7 @@ tfoot td {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-family: 'Raleway', serif;
 }
 
 .header-table h1 {
@@ -495,6 +484,7 @@ tfoot td {
   margin: 80px 0 30px 0;
   display: flex;
   align-items: center;
+  font-family: 'Raleway', serif;
 }
 
 .team__player-name span {
@@ -518,6 +508,31 @@ tfoot td {
 .team__header img {
   max-width: 100px;
   margin-right: 30px;
+}
+
+.option {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 30px 0 0;
+}
+
+.option img {
+  margin-right: 30px;
+  border-radius: 5px;
+  background-color: #b4b4b4;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  padding: 2px;
+}
+
+.option img:hover {
+  transform: translateY(-3px) scale(1.001);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  background-color: #878484;
+}
+
+.active {
+  background-color: #3294e5 !important;
 }
 
 /* Responsivos */

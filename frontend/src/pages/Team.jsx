@@ -4,11 +4,16 @@ import { getTeamById } from '../../api/teamsApi.js'
 import { getPlayersInTeam } from '../../api/playersApi.js'
 import nbaLogo from '../assets/NBALogo.png'
 import { Link } from 'react-router-dom'
+import { ItemTable } from '../components/itemTable.jsx'
+import menu from '../assets/menu.png'
+import tabela from '../assets/tabela.png'
+import { ListPlayers } from '../components/listPlayers.jsx'
 
 export const Team = () => {
   const { id } = useParams()
-  const [team, setTeam] = useState([])
+  const [team, setTeam] = useState({})
   const [players, setPlayers] = useState([])
+  const [viewMode, setViewMode] = useState('table')
 
   useEffect(() => {
     const fetchData = async () => {
@@ -32,61 +37,83 @@ export const Team = () => {
         </Link>
         <h2>{team.time}</h2>
       </div>
-      <div className="table-container">
-        <div className="table-card">
-          <div className="header-table">
-            <h1>Elenco {team.time}</h1>
-            <img className="table-logo" src={nbaLogo} alt="" />
-          </div>
-
-          <table>
-            <thead>
-              <tr>
-                <th> </th>
-                <th>NOME</th>
-                <th>POSIÇÃO</th>
-                <th>IDADE</th>
-                <th>ALTURA</th>
-                <th>PESO</th>
-                <th>UNIVERSIDADE</th>
-                <th>SALÁRIO</th>
-              </tr>
-            </thead>
-
-            <tbody>
-              {players.map(player => (
-                <tr key={player._id}>
-                  <td>
-                    <img
-                      className="team__player-image"
-                      src={player.image}
-                      alt={`Imagem do jogador ${player.name}`}
-                    />
-                  </td>
-                  <td className="team__player-name">
-                    <Link to={`/players/${player._id}`}>
-                      {player.name} <span>{player.number}</span>
-                    </Link>
-                  </td>
-                  <td>{player.position}</td>
-                  <td>{player.age}</td>
-                  <td>{player.height}</td>
-                  <td>{player.weight}</td>
-                  <td>{player.university}</td>
-                  <td>{player.salary}</td>
-                </tr>
-              ))}
-            </tbody>
-            <tfoot>
-              <tr>
-                <td colSpan="8" className="team__technical">
-                  Técnico: {team.technical}
-                </td>
-              </tr>
-            </tfoot>
-          </table>
-        </div>
+      <div className="option">
+        <img
+          src={tabela}
+          alt="Imagem de tabela"
+          onClick={() => setViewMode('table')}
+          onKeyDown={e => {
+            if (e.key === 't' || e.key === ' ') {
+              setViewMode('table')
+            }
+          }}
+          className={viewMode === 'table' ? 'active' : ''}
+        />
+        <img
+          src={menu}
+          alt="Imagem de menu"
+          onClick={() => setViewMode('menu')}
+          onKeyDown={e => {
+            if (e.key === 'm') {
+              setViewMode('menu')
+            }
+          }}
+          className={viewMode === 'menu' ? 'active' : ''}
+        />
       </div>
+
+      {viewMode === 'table' ? (
+        <div className="table-container">
+          <div className="table-card">
+            <div className="header-table">
+              <h1>Elenco {team.time}</h1>
+              <img className="table-logo" src={nbaLogo} alt="" />
+            </div>
+
+            <table>
+              <thead>
+                <tr>
+                  <th> </th>
+                  <th>NOME</th>
+                  <th>POSIÇÃO</th>
+                  <th>IDADE</th>
+                  <th>ALTURA</th>
+                  <th>PESO</th>
+                  <th>UNIVERSIDADE</th>
+                  <th>SALÁRIO</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                {players.map(player => (
+                  <ItemTable
+                    id={player._id}
+                    image={player.image}
+                    name={player.name}
+                    number={player.number}
+                    position={player.position}
+                    age={player.age}
+                    height={player.height}
+                    weight={player.weight}
+                    university={player.university}
+                    salary={player.salary}
+                    key={player._id}
+                  />
+                ))}
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td colSpan="8" className="team__technical">
+                    Técnico: {team.technical}
+                  </td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
+      ) : (
+        <ListPlayers players={players} />
+      )}
     </div>
   )
 }
