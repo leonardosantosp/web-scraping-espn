@@ -1,9 +1,10 @@
 import { ListPlayers } from '../components/listPlayers'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import { getPlayers } from '../../api/playersApi.js'
 
 export const Players = () => {
   const [players, setPlayers] = useState([])
+  const [visiblePlayers, setVisiblePlayers] = useState(5)
 
   useEffect(() => {
     const fetchPlayers = async () => {
@@ -17,5 +18,19 @@ export const Players = () => {
     fetchPlayers()
   }, [])
 
-  return <ListPlayers players={players} />
+  const handleScroll = useCallback(() => {
+    if (
+      window.innerHeight + window.scrollY >=
+      document.body.offsetHeight - 100
+    ) {
+      setVisiblePlayers(prev => prev + 5)
+    }
+  }, [])
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [handleScroll])
+
+  return <ListPlayers players={players.slice(0, visiblePlayers)} />
 }

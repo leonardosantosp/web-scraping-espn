@@ -535,6 +535,28 @@ tfoot td {
   background-color: #3294e5 !important;
 }
 
+.loading {
+  font-size: 18px;
+  font-weight: bold;
+  color: #555;
+  text-align: center;
+  margin: 20px 0;
+  padding: 10px;
+  background: linear-gradient(90deg, #f3f3f3 25%, #e0e0e0 50%, #f3f3f3 75%);
+  background-size: 200% 100%;
+  border-radius: 8px;
+  animation: shimmer 1.5s infinite linear;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
 /* Responsivos */
 
 @media (max-width: 768px) {

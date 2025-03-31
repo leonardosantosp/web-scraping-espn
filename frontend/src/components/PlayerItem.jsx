@@ -19,7 +19,7 @@ export const PlayerItem = ({ player }) => {
   }, [player])
 
   if (!team) {
-    return <div>Loading Player...</div>
+    return <div className="loading">Loading Player...</div>
   }
 
   return (
