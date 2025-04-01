@@ -1,8 +1,7 @@
 import {
   getAllplayersService,
   getPlayerByIdService,
-  getPlayersByTeamService,
-  getPlayerInTeamByIdService
+  getPlayersByTeamService
 } from '../services/player.service.js'
 
 import mongoose from 'mongoose'
@@ -61,30 +60,5 @@ export const getPlayersByTeamController = async (request, reply) => {
   } catch (error) {
     console.error('Error while retrieving Players: ', error)
     return reply.status(500).send({ error: 'Error while retrieving Players' })
-  }
-}
-
-export const getPlayerInTeamByIdController = async (request, reply) => {
-  try {
-    const { teamId, id } = request.params
-
-    if (!mongoose.isValidObjectId(teamId) || !mongoose.isValidObjectId(id)) {
-      return reply.status(400).send({ message: 'Id is invalid!' })
-    }
-
-    const player = await getPlayerInTeamByIdService(id, teamId)
-    const team = await getTeamByIdService(teamId)
-
-    if (!team) {
-      return reply.status(404).send({ message: 'team not found' })
-    }
-
-    if (!player) {
-      return reply.status(404).send({ message: 'player not found' })
-    }
-    return reply.status(200).send(player)
-  } catch (error) {
-    console.error('Error while retrieving Player:', error)
-    return reply.status(500).send({ error: 'Error while retrieving Player' })
   }
 }

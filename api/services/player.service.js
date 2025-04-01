@@ -1,8 +1,7 @@
 import {
   getAllPlayers,
   getPlayerById,
-  getPlayersByTeam,
-  getPlayerInTeamById
+  getPlayersByTeam
 } from '../repository/player.repository.js'
 
 import { formatPlayerData, formatPlayersData } from '../utils/formatters.js'
@@ -37,17 +36,5 @@ export async function getPlayersByTeamService(teamId) {
     return formatPlayersData(players)
   } catch (error) {
     throw new Error('Error while fetching players')
-  }
-}
-
-export async function getPlayerInTeamByIdService(id, teamId) {
-  try {
-    const player = await getPlayerInTeamById(id, teamId)
-    if (!player) {
-      return null
-    }
-    return formatPlayerData(player)
-  } catch (error) {
-    throw new Error('Error while fetching player')
   }
 }

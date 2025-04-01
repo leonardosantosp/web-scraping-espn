@@ -1,8 +1,7 @@
 import {
   getAllPlayersController,
   getPlayerByIdController,
-  getPlayersByTeamController,
-  getPlayerInTeamByIdController
+  getPlayersByTeamController
 } from '../controllers/player.controller.js'
 
 import { playerSchema } from './schemas.js'
@@ -89,36 +88,5 @@ export function playerRoutes(app) {
       }
     },
     getPlayersByTeamController
-  )
-
-  app.get(
-    '/teams/:teamId/players/:id',
-    {
-      schema: {
-        description: 'Retrieve a specific player from a team by player ID',
-        summary: 'GET a player from a team by ID',
-        tags: ['players', 'teams'],
-        params: z.object({
-          teamId: z.string(),
-          id: z.string()
-        }),
-        response: {
-          200: playerSchema,
-          400: z.object({
-            message: z.string(),
-            error: z.string().optional()
-          }),
-          404: z.object({
-            message: z.string(),
-            error: z.string().optional()
-          }),
-          500: z.object({
-            message: z.string(),
-            error: z.string()
-          })
-        }
-      }
-    },
-    getPlayerInTeamByIdController
   )
 }

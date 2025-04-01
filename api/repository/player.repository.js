@@ -11,7 +11,3 @@ export async function getPlayerById(id) {
 export async function getPlayersByTeam(teamId) {
   return Player.find({ team_id: teamId })
 }
-
-export async function getPlayerInTeamById(id, teamId) {
-  return Player.findOne({ _id: id, team_id: teamId })
-}
