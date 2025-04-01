@@ -1,9 +1,9 @@
-import nbaMap from '../assets/nbaMap.svg'
+import { NbaMap } from '../components/nbaMap.jsx'
 
 export const Main = () => {
   return (
-    <div className="main">
-      <img src={nbaMap} alt="mapa nba" className="main__image" />
-    </div>
+    <>
+      <NbaMap />
+    </>
   )
 }
