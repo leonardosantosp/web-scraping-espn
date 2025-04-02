@@ -1,9 +1,11 @@
 import { getTeams } from '../../api/teamsApi.js'
 import { useEffect, useState, useRef } from 'react'
 import nbaMap from '../assets/nbaMap.svg'
+import { Load } from '../components/load.jsx'
 
 export const NbaMap = () => {
   const [teamLinks, setTeamLinks] = useState({})
+  const [isLoading, setIsLoading] = useState(true)
   const svgRef = useRef(null)
 
   useEffect(() => {
@@ -58,16 +60,28 @@ export const NbaMap = () => {
   }
 
   return (
-    <div className="main">
-      <object
-        ref={svgRef}
-        id="mapa"
-        type="image/svg+xml"
-        data={nbaMap}
-        onLoad={handleSvgLoad}
-        title="Mapa interativo dos times da NBA"
-        aria-label="Mapa interativo dos times da NBA"
-      />
-    </div>
+    <>
+      <div className="main">
+        {isLoading && <Load />}
+        <object
+          className="load-object"
+          ref={svgRef}
+          id="mapa"
+          type="image/svg+xml"
+          data={nbaMap}
+          onLoad={() => {
+            setTimeout(() => {
+              if (svgRef.current) {
+                svgRef.current.style.visibility = 'visible'
+                handleSvgLoad()
+                setIsLoading(false)
+              }
+            }, 100)
+          }}
+          title="Mapa interativo dos times da NBA"
+          aria-label="Mapa interativo dos times da NBA"
+        />
+      </div>
+    </>
   )
 }
