@@ -4,6 +4,7 @@ import { getTeamById } from '../../api/teamsApi.js'
 import assinatura from '../assets/Assinatura.png'
 import prancheta from '../assets/prancheta.png'
 import { useParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 export const Player = () => {
   const { id } = useParams()
@@ -38,7 +39,9 @@ export const Player = () => {
               <img src={player.image} alt={`Imagem de ${player.name}`} />
             </div>
             <div className="player__header-team-image">
-              <img src={team.image_link} alt={`Logo do time ${team.name}`} />
+              <Link to={`/teams/${team._id}`}>
+                <img src={team.image_link} alt={`Logo do time ${team.name}`} />
+              </Link>
             </div>
           </div>
 
