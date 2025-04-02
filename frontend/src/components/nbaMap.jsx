@@ -64,7 +64,7 @@ export const NbaMap = () => {
       <div className="main">
         {isLoading && <Load />}
         <object
-          className="load-object"
+          className="load-object main__map"
           ref={svgRef}
           id="mapa"
           type="image/svg+xml"

@@ -2,6 +2,8 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
 * {
   padding: 0;
   margin: 0;
@@ -66,14 +68,96 @@ body {
   width: 150px;
 }
 
-.header__menu-icon {
+.menu {
   display: none;
 }
 
-.header__menu-icon img {
-  width: 40px;
-  height: 40px;
+.menu-button {
+  color: white;
+  margin-right: 40px;
+  font-size: 30px;
+  background: none;
+  border: none;
   cursor: pointer;
+  position: fixed;
+  top: 15px;
+  left: 15px;
+}
+
+.fullscreen-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s;
+  background-image: url('./assets/background_menu.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.fullscreen-menu.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.close-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 30px;
+  background-color: #0066cc;
+  border-radius: 10px;
+  padding: 5px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 4px 6px 15px rgba(0, 0, 0, 0.2),
+    inset 2px 2px 5px rgba(255, 255, 255, 0.2),
+    inset -2px -2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.logo_menu img {
+  height: 200px;
+  width: 200px;
+}
+
+.menu-links a {
+  width: 100%;
+  background-color: #113d8e;
+  border-radius: 50px;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  font-size: 50px;
+  text-decoration: none;
+  margin-bottom: 30px;
+  padding: 20px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 900;
+  font-style: italic;
+
+  box-shadow: 4px 6px 15px rgba(0, 0, 0, 0.2),
+    inset 2px 2px 5px rgba(255, 255, 255, 0.2),
+    inset -2px -2px 5px rgba(0, 0, 0, 0.2);
+
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.menu-links a:hover {
+  text-decoration: underline;
+
+  box-shadow: 6px 8px 20px rgba(0, 0, 0, 0.3),
+    inset 3px 3px 6px rgba(255, 255, 255, 0.3),
+    inset -3px -3px 6px rgba(0, 0, 0, 0.3);
 }
 
 .header__routes ul {
@@ -101,22 +185,29 @@ body {
 }
 
 .main {
-  height: 100%;
+  margin-top: 40px;
+  min-height: 100vh;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: url('./assets/back.svg') no-repeat center center;
+  background: url(/src/assets/back.svg) no-repeat center center;
   background-size: cover;
-  top: 80px;
   filter: blur(0.5px);
-  z-index: -1;
 }
 
 #mapa {
   margin-top: 40px;
-  width: 80%;
-  height: 80%;
+  width: 85%;
+  height: 85%;
+}
+
+.map-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
 }
 
 .list-container {
@@ -563,7 +654,17 @@ tfoot td {
 
 /* Responsivos */
 
+@media (max-width: 800px) {
+  #mapa {
+    width: 100%;
+  }
+}
+
 @media (max-width: 768px) {
+  .menu {
+    display: block;
+  }
+
   .header {
     height: auto;
   }
@@ -576,13 +677,8 @@ tfoot td {
     font-size: 28px;
   }
 
-  .header__routes ul {
-    flex-direction: column;
-    margin-top: 15px;
-  }
-
-  .header__routes li {
-    margin-bottom: 15px;
+  .header__routes {
+    display: none;
   }
 
   .list-teams {
@@ -698,7 +794,11 @@ tfoot td {
     opacity: 0.3;
   }
 }
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
+  #mapa {
+    width: 100%;
+  }
+
   .player-container {
     height: auto;
     padding: 50px 20px;
@@ -745,11 +845,10 @@ tfoot td {
   }
 }
 
-/* Responsivos para mobile */
 @media (max-width: 480px) {
   .player {
-    background-size: 70% auto; /* Diminuir o tamanho da prancheta para telas menores */
-    background-position: top center; /* Ajustar a posição da prancheta */
+    background-size: 70% auto;
+    background-position: top center;
   }
 
   .player__content {
@@ -759,7 +858,7 @@ tfoot td {
 
   .player__header-background-image img,
   .player__header-team-image img {
-    width: 60px; /* Ajustar o tamanho das imagens do cabeçalho para telas pequenas */
+    width: 60px;
     height: 60px;
   }
 
@@ -770,7 +869,7 @@ tfoot td {
   .player__data p {
     font-size: 0.9rem;
     padding-bottom: 3px;
-    border-bottom: 1.5px solid #000; /* Reduzir a espessura da borda */
+    border-bottom: 1.5px solid #000;
   }
 
   .signature-container {

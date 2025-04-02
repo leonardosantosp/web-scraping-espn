@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom'
 import NBALogo from '../assets/NBALogo.png'
+import { FullScreenMenu } from './FullScreenMenu'
+
 export const Header = () => {
   return (
     <div className="header">
@@ -27,6 +29,8 @@ export const Header = () => {
           </li>
         </ul>
       </div>
+
+      <FullScreenMenu />
     </div>
   )
 }

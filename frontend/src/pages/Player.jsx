@@ -11,7 +11,7 @@ export const Player = () => {
   const [team, setTeam] = useState([])
 
   useEffect(() => {
-    const fetchTeam = async () => {
+    const fetchPlayer = async () => {
       try {
         const data = await getPlayerById(id)
         setPlayer(data)
@@ -21,7 +21,7 @@ export const Player = () => {
         console.error('Erro ao buscar Jogador: ', error)
       }
     }
-    fetchTeam()
+    fetchPlayer()
   }, [id])
 
   return (

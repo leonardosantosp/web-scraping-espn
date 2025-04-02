@@ -10,7 +10,10 @@ export const Players = () => {
     const fetchPlayers = async () => {
       try {
         const data = await getPlayers()
-        setPlayers(data)
+        const sortedPlayers = data.sort((a, b) =>
+          a.team_id.localeCompare(b.team_id)
+        )
+        setPlayers(sortedPlayers)
       } catch (error) {
         console.error('Erro ao buscar players:', error)
       }
