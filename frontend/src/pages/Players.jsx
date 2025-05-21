@@ -1,5 +1,8 @@
-import { ListPlayers } from '../components/listPlayers'
+// Hooks, Components
+import { ListPlayers } from '../components/ListPlayers'
 import { useEffect, useState, useCallback } from 'react'
+
+//API Functions
 import { getPlayers } from '../../api/playersApi.js'
 
 export const Players = () => {

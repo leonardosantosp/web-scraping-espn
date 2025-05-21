@@ -1,6 +1,9 @@
-import { getTeamById } from '../../api/teamsApi.js'
+// Hooks
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+
+// API Functions
+import { getTeamById } from '../../api/teamsApi.js'
 
 export const PlayerItem = ({ player }) => {
   const [team, setTeam] = useState(null)

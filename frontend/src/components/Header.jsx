@@ -1,6 +1,9 @@
+// Hooks, Components
 import { Link } from 'react-router-dom'
-import NBALogo from '../assets/NBALogo.png'
 import { FullScreenMenu } from './FullScreenMenu'
+
+// Assets
+import NBALogo from '../assets/NBALogo.png'
 
 export const Header = () => {
   return (

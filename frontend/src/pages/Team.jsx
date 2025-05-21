@@ -1,13 +1,17 @@
+// Libraries, Hooks, Components
 import { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
+import { ItemTable } from '../components/ItemTable.jsx'
+import { ListPlayers } from '../components/ListPlayers.jsx'
+
+// API Functions
 import { getTeamById } from '../../api/teamsApi.js'
 import { getPlayersInTeam } from '../../api/playersApi.js'
+
+//Assets
 import nbaLogo from '../assets/NBALogo.png'
-import { Link } from 'react-router-dom'
-import { ItemTable } from '../components/itemTable.jsx'
 import menu from '../assets/menu.png'
 import tabela from '../assets/tabela.png'
-import { ListPlayers } from '../components/listPlayers.jsx'
 
 export const Team = () => {
   const { id } = useParams()

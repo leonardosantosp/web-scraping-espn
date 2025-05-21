@@ -1,4 +1,5 @@
-import { NbaMap } from '../components/nbaMap.jsx'
+// Components
+import { NbaMap } from '../components/NbaMap.jsx'
 
 export const Main = () => {
   return (

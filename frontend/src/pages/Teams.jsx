@@ -1,4 +1,5 @@
-import { ListTeams } from '../components/listTeams.jsx'
+//Components
+import { ListTeams } from '../components/ListTeams.jsx'
 
 export const Teams = () => {
   return <ListTeams />
