@@ -651,6 +651,10 @@ tfoot td {
   transform: translateY(-10px);
 }
 
+.preload {
+  display: none;
+}
+
 /* Responsivos */
 
 @media (max-width: 800px) {

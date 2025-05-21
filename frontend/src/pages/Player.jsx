@@ -34,6 +34,11 @@ export const Player = () => {
 
   return (
     <div className="player-container">
+      <div className="preload">
+        <img src={assinatura} alt="" />
+        <img src={prancheta} alt="" />
+      </div>
+
       {isloading ? (
         <Load />
       ) : (
